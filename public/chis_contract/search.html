@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>CHIS契約情報検索</title>
+
+<!--		<link rel="stylesheet" href="https://w3.ibm.com/w3ds/cdn/VERSION/CSS-FILE">
+		<script src="https://w3.ibm.com/w3ds/cdn/VERSION/w3ds.js"></script>
+
+		<link rel="stylesheet" href="https://w3.ibm.com/w3ds/cdn/latest/w3ds-compact.css"> -->
+
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+		<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+
+	</head>
+	<body class="ds-has-sticky-footer">
+
+<!--
+	How to set up the w3 Masthead
+	https://w3.ibm.com/w3-masthead/
+-->
+<a href="https://w3.ibm.com/"
+	id="ds-w3-injectable-nav"
+	data-layout="1"
+	data-height="79"
+	data-breakpoint="sm"
+	target="_blank">w3</a>
+<script type="text/javascript" src="https://w3.ibm.com/w3-masthead/plugins/w3-masthead/w3-masthead.js"></script>
+
+		<div class="ds-grid">
+			<div class="ds-row">
+				<div class="ds-col-12">
+					<div class="ds-row ds-pad-t-1">
+						<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+							<!-- img src="../images/w3ds-logo.svg" class="ds-pad-b-1" alt="w3DS" -->
+							<h2 class="ds-heading-2 ds-mar-b-0 ds-text-align-center ds-font-weight-bold">CHIS契約情報照会</h2>
+							<p class="ds-mar-0">
+<!--- w3ds template --->
+
+<script>
+	$(function(){
+		$("#loader").hide();
+	});
+
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+
+	const searchData = (search_type) => {
+
+		mtype = searchItems.mtype.value.toUpperCase();
+		model = searchItems.model.value.toUpperCase();
+		serial = searchItems.serial.value.toUpperCase();
+		install = searchItems.install.value.toUpperCase();
+		warrantyend = searchItems.warrantyend.value.toUpperCase();
+		usingcustmer = searchItems.usingcustmer.value.toUpperCase();
+		effective_start = searchItems.effective_start.value.toUpperCase();
+		effective_end = searchItems.effective_end.value.toUpperCase();
+
+		if ((mtype.length == 0) & (model.length == 0) & (serial.length == 0) & (install.length == 0) & (warrantyend.length == 0) & (usingcustmer.length == 0) & (effective_start.length == 0) & (effective_end.length == 0)) {
+			search_type = "all";
+		}
+
+		switch (search_type) {
+			case "search":
+				url = "/chis_contract?type=api&search_type=search&mtype=" + mtype + "&model=" + model + "&serial=" + serial + "&install=" + install + "&warrantyend=" + warrantyend + "&usingcustmer=" + usingcustmer + "&effective_start=" + effective_start + "&effective_end=" + effective_end;
+				break;
+			case "all":
+			default:
+				url = "/chis_contract?type=api&search_type=all";
+				break;
+		}
+
+		$("#table_contents").empty();
+
+		$("#loader").show();
+
+		fetch(url)
+			.then((response) => response.json())
+			.then((body_docs) => {
+				createTable(body_docs);
+		});
+
+	}
+
+	const createTable = (body_docs) => {
+
+    var param = '<table id="table_id" class="display">\n';   //dataTables
+//		var param = '<table class="ds-table ds-table-compact ds-striped _ds-centered">\n';
+		param += '<thead>\n';
+		param += '<tr class="ds-bg-contextual-blue-3 ds-caption ds-label">\n';
+
+		param += '<th>M/T</th>\n';                 // MTYPE
+		param += '<th>Model</th>\n';               // MODEL
+		param += '<th>Serial</th>\n';              // SERIAL
+		param += '<th>インストール日</th>\n';       // INSTALL
+		param += '<th>保証終了日</th>\n';           // WARRANTYEND
+		param += '<th>設置先のお客様番号</th>\n';    // USINGCUSTMER
+		param += '<th>サービス開始日</th>\n';       // EFFECTIVE_START
+		param += '<th>サービス終了日</th>\n';       // EFFECTIVE_END
+
+		param += '</tr></thead>\n';
+
+		// DataTable script
+					$(document).ready( function () {
+						$('#table_id').DataTable();
+					} );
+
+		if (Object.keys(body_docs).length != 0) {
+
+			for (i = 0; i < Object.keys(body_docs).length; i++) {
+
+				param += "<tr>";
+				param += '<td class="ds-text-align-center ds-caption ds-label">' + body_docs[i].MTYPE + "</td>";
+				param += '<td class="ds-text-align-center ds-caption ds-label">' + body_docs[i].MODEL + "</td>";
+				param += '<td class="ds-text-align-center ds-caption ds-label">' + body_docs[i].SERIAL + "</td>";
+				param += '<td class="ds-text-align-center ds-caption ds-label">' + body_docs[i].INSTALL + "</td>";
+				param += '<td class="ds-text-align-center ds-caption ds-label">' + body_docs[i].WARRANTYEND + "</td>";
+				param += '<td class="ds-text-align-center ds-caption ds-label">' + body_docs[i].USINGCUSTMER + "</td>";
+				param += '<td class="ds-text-align-center ds-caption ds-label">' + body_docs[i].EFFECTIVE_START + "</td>";
+				param += '<td class="ds-text-align-center ds-caption ds-label">' + body_docs[i].EFFECTIVE_END + "</td></tr>\n";
+
+			}
+			param += "</tr></table>";
+
+			$("#loader").hide();
+
+			$("#table_contents").append(param);
+			$("#result").empty();
+			$("#result").append(Object.keys(body_docs).length);
+		}
+	}
+
+	const getCurrentTime = () => {
+		var date = new Date();
+
+		var d = date.getFullYear()
+			+ ('0' + (date.getMonth() + 1)).slice(-2)
+			+ ('0' + date.getDate()).slice(-2)
+			+ ('0' + date.getHours()).slice(-2)
+			+ ('0' + date.getMinutes()).slice(-2)
+			+ ('0' + date.getSeconds()).slice(-2);
+
+		return d;
+	};
+
+	const download = () => {
+		current_timestamp = getCurrentTime();
+
+		var dl = document.createElement("a");
+		dl.download = "TSS_Portal_DB_" + current_timestamp + ".csv"; // Download File Name
+		dl.href = "/tss_portal_all_data.csv";
+		dl.dataset.downloadurl = ["text/plain", dl.href].join(":");
+
+		dl.click();
+	}
+
+	const clearData = () => {
+		searchItems.mtype.value = "";
+		searchItems.model.value = "";
+		searchItems.serial.value = "";
+		searchItems.install.value = "";
+		searchItems.warrantyend.value = "";
+		searchItems.usingcustmer.value = "";
+		searchItems.effective_start.value = "";
+		searchItems.effective_end.value = "";
+		$("#table_contents").empty();
+		$("#result").empty();
+		$("#result").append(0);
+	}
+</script>
+
+<form name="searchItems">
+<div class="ds-table-container ds-col-12">
+<table class="ds-table ds-table-compact">
+	<tr>
+		<td>M/T (4桁):</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-4">
+			    <input type="text" class="ds-input" id="mtype" placeholder="mtype" name="mtype" value="" maxlength=4>
+			</div>
+		</td>
+	<!/tr>
+	<!tr>
+		<td>Model (3桁):</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-4">
+			    <input type="text" class="ds-input" id="model" placeholder="model" name="model" value="" maxlength=3>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Serial No. (7桁):</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-5">
+			    <input type="text" class="ds-input" id="serial" placeholder="serial" name="serial" value="" maxlength=7>
+			</div>
+		</td>
+	<!/tr>
+	<!tr>
+		<td>Custmer No. (8桁 00xxxxxx):</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-5">
+			    <input type="text" class="ds-input" id="usingcustmer" placeholder="usingcustmer" name="usingcustmer" value="" maxlength=8>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>インストール日 (yyyy-mm-dd):</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-6">
+			    <input type="text" class="ds-input" id="install" placeholder="install" name="install" value="" maxlength=10>
+			</div>
+		</td>
+	<!/tr>
+	<!tr>
+		<td>保証終了日 (yyyy-mm-dd):</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-6">
+			    <input type="text" class="ds-input" id="warrantyend" placeholder="warrantyend" name="warrantyend" value="" maxlength=10>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>サービス開始日 (yyyy-mm-dd):</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-6">
+			    <input type="text" class="ds-input" id="effective_start" placeholder="effective_start" name="effective_start" value="" maxlength=10>
+			</div>
+		</td>
+	<!/tr>
+	<!tr>
+		<td>サービス終了日 (yyyy-mm-dd):</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-6">
+			    <input type="text" class="ds-input" id="effective_end" placeholder="effective_end" name="effective_end" value="" maxlength=10>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+</form>
+
+<div class="ds-button-group-h ds-row ds-mar-t-1 ds-pad-l-r-1">
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="searchData('search');">
+	<span class="ds-icon-search" tabindex="0" role="text" aria-label="admin">
+	検索</span></button>
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-3" id="search_ongoing" onclick="searchData('all');">
+	<span class="ds-icon-archive _ds-text-contextual-blue-3" tabindex="0" role="text" aria-label="admin">
+	全データ</span></button>
+
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="clearData();">
+	<span class="ds-icon-refresh" tabindex="0" role="text" aria-label="admin">
+	クリア</span></button>
+
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="redirectTo('../index.html');">
+	<span class="ds-icon-reset" tabindex="0" role="text" aria-label="admin">
+	戻る</span></button>
+</div>
+
+<span class="ds-pad-l-r-1 ds-mar-0 ds-pad-0" id="result">0</span>件
+
+<div class='ds-table-container ds-col-12'>
+<div id="table_contents"></div>
+</div>
+
+<div id="loader">
+<div class="ds-loader">
+	<div class="ds-loader-container">
+		<div class="ds-loader-container"></div>
+	</div>
+</div>
+</div>
+
+<!--- w3ds template --->
+			<!--				</p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

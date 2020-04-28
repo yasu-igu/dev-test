@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>JTB DB</title>
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" type="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- dataTable -->
+	  <!-- link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" -->
+	  <!-- script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script -->
+		<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+		<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+
+	</head>
+	<body class="ds-has-sticky-footer">
+
+
+<!-- w3ds template -->
+
+<div class="ds-grid">
+	<div class="ds-row">
+		<div class="ds-col-12">
+			<div class="ds-row ds-pad-t-1">
+
+	        <div class="ds-col-xs-2 ds-col-md-2 ds-col-lg-2 ds-mar-t-0">
+	          <a class="ds-button ds-flat tray-nav-close ds-current" href="#">検索</a>
+	        </div>
+					<div class="ds-col-xs-2 ds-col-md-2 ds-col-lg-2 ds-mar-t-0">
+	          <a class="ds-button ds-flat tray-nav-close" href="/tss_portal/th.html">受付票</a>
+          </div>
+	        <div class="ds-col-xs-2 ds-col-md-2 ds-col-lg-2 ds-mar-t-0">
+	          <a class="ds-button ds-flat tray-nav-close" href="/tss_portal/squad.html">受付票(人別)</a>
+	        </div>
+					<div class="ds-col-xs-2 ds-col-md-2 ds-col-lg-2 ds-mar-t-0">
+						<a class="ds-button ds-flat tray-nav-close" href="/tss_portal/agile.html">未完了受付</a>
+					</div>
+					<div class="ds-col-xs-2 ds-col-md-2 ds-col-lg-2 ds-mar-t-0">
+						<a class="ds-button ds-flat tray-nav-close" href="/tss_portal/salesforce.html">新規作成</a>
+					</div>
+					<!-- div class="ds-col-xs-2 ds-col-md-2 ds-col-lg-2 ds-mar-t-0">
+						<a class="ds-button ds-flat tray-nav-close" href="/tss_portal/salesforce.html"></a>
+					</div -->
+
+<img src="/images/JTB.jpg" class="ds-img-force-grow">
+
+
+
+
+<form name="searchContract">
+<div class="ds-table-container ds-col-12">
+<table class="ds-table ds-table-compact">
+	<tr>
+		<td>カテゴリー :</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-8">
+			    <input type="text" class="ds-input" id="category" placeholder="category" name="category" value="" maxlength=12>
+			</div>
+		</td>
+		<!/tr>
+		<!tr>
+		<td>Subject :</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-8">
+			    <input type="text" class="ds-input" id="subject" placeholder="subject" name="subject" value="" maxlength=12>
+			</div>
+		</td>
+		<!/tr>
+		<!tr>
+		<td>作成者 :</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-8">
+			    <input type="text" class="ds-input" id="creater" placeholder="creater" name="creater" value="" maxlength=12>
+			</div>
+		</td>
+		<tr>
+			<td>作成日 :</td>
+			<td>
+				<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-8">
+				    <input type="text" class="ds-input" id="create_date" placeholder="create_date" name="create_date" value="" maxlength=12>
+				</div>
+			</td>
+			<!/tr>
+			<!tr>
+			<td>最終更新日 :</td>
+			<td>
+				<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-8">
+				    <input type="text" class="ds-input" id="last_update" placeholder="last_update" name="last_update" value="" maxlength=12>
+				</div>
+			</td>
+	</tr>
+</table>
+</div>
+</form>
+
+<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+<div class="ds-button-group-h ds-row ds-mar-t-1">
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="search();">
+	<span class="ds-icon-search" tabindex="0" role="text" aria-label="admin"></span>
+	検索
+	</button>
+
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="clearData();">
+	<span class="ds-icon-refresh" tabindex="0" role="text" aria-label="admin"></span>
+	クリア
+	</button>
+
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="redirectTo('../index.html');">
+	<span class="ds-icon-reset" tabindex="0" role="text" aria-label="admin"></span>
+	戻る
+	</button>
+</div></div>
+
+<div class='ds-table-container ds-col-12'>
+  <div id="table_contents"></div>
+</div>
+
+<script>
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+
+	const getCurrentTime = () => {
+		var date = new Date();
+
+		var d = date.getFullYear()
+			+ ('0' + (date.getMonth() + 1)).slice(-2)
+			+ ('0' + date.getDate()).slice(-2)
+			+ ('0' + date.getHours()).slice(-2)
+			+ ('0' + date.getMinutes()).slice(-2)
+			+ ('0' + date.getSeconds()).slice(-2);
+
+		return d;
+	};
+
+	const download = () => {
+		current_timestamp = getCurrentTime();
+
+		var dl = document.createElement("a");
+		dl.download = "TSS_Portal_DB_" + current_timestamp + ".csv"; // Download File Name
+		dl.href = "/tss_portal_all_data.csv";
+		dl.dataset.downloadurl = ["text/plain", dl.href].join(":");
+
+		dl.click();
+	}
+</script>
+
+<div class='ds-table-container ds-col-12'>
+<table class='ds-table ds-table-compact  ds-striped _ds-centered'>
+	<tr class="ds-bg-contextual-blue-3">
+		<th>カテゴリー</th>
+		<th>Subject</th>
+		<th>作成者</th>
+		<th>作成日</th>
+		<th>最終更新日</th>
+		<th>サイズ</th>
+		<th>添付</th>
+	</tr>
+
+<tr>
+	<td>
+		Project管理
+	</td>
+	<td>
+		ARIS入力情報
+	</td>
+	<td>
+		Atsunori Baba
+	</td>
+	<td>
+		2009/09/18 13:11
+	</td>
+	<td>
+		2019/09/21 10:43
+	</td>
+	<td>
+　　　xxxxxxxxxx
+	</td>
+	<td>
+　　https://ibm.ent.box.com/folder/xxxxxxxxxxxxxxxxxxxx
+	</td>
+
+</tr>
+
+<tr>
+	<td>
+		お客様情報
+	</td>
+	<td>
+		【JR-ACT・再起動ツール】
+	</td>
+		<td>
+				Shohichi Takahashi
+			</td>
+			<td>
+				2010/08/03 20:02
+			</td>
+			<td>
+				2010/08/04 09:19
+			</td>
+			<td>
+		　　　xxxxxxxxxx
+			</td>
+			<td>
+		　　https://ibm.ent.box.com/folder/xxxxxxxxxxxxxxxxxxxx
+			</td>
+
+		</tr>
+
+	<tr>
+		<td>
+			機種別
+		</td>
+		<td>
+			必要 20200410 by shiroki 平和堂様、TKP障害(VPN)
+		</td>
+	<td>
+
+	</td>
+	<td>
+		2010/08/17 10:07
+	</td>
+	<td>
+		2020/04/15 09:57
+	</td>
+	<td>
+　　　xxxxxxxxxx
+	</td>
+	<td>
+　　https://ibm.ent.box.com/folder/xxxxxxxxxxxxxxxxxxxx
+	</td>
+
+</tr>
+
+
+<tr>
+	<td>
+		業務
+	</td>
+	<td>
+		緊急連絡先(2019/03更新)
+	</td>
+	<td>
+		高橋 正一
+	</td>
+	<td>
+		2009/09/15 13:23
+	</td>
+	<td>
+		2020/02/28 14:12
+	</td>
+	<td>
+　　　xxxxxxxxxx
+	</td>
+	<td>
+　　https://ibm.ent.box.com/folder/xxxxxxxxxxxxxxxxxxxx
+	</td>
+
+</tr>
+
+
+<tr>
+	<td>
+		掲示板
+	</td>
+	<td>
+		xxx(掲示板管理用1)
+	</td>
+	<td>
+		Shohkichi Andoh
+	</td>
+	<td>
+		2014/07/06 14:11
+	</td>
+	<td>
+		2015/07/06 19:51
+	</td>
+	<td>
+　　　xxxxxxxxxx
+	</td>
+	<td>
+　　https://ibm.ent.box.com/folder/xxxxxxxxxxxxxxxxxxxx
+	</td>
+
+</tr>
+
+
+<tr>
+	<td>
+		保守情報
+	</td>
+	<td>
+		マニュアル
+	</td>
+	<td>
+		高橋 正一
+	</td>
+	<td>
+		2009/09/15 11:33
+	</td>
+	<td>
+		2009/10/27 20:15
+	</td>
+	<td>
+　　　xxxxxxxxxx
+	</td>
+	<td>
+　　https://ibm.ent.box.com/folder/xxxxxxxxxxxxxxxxxxxx
+	</td>
+
+</tr>
+
+<tr>
+	<td>
+		カテゴリ無
+	</td>
+	<td>
+		【他社製PC-TKP接続の保守について】
+	</td>
+	<td>
+		Shohichi Takahashi
+	</td>
+	<td>
+		2011/01/04 10:34
+	</td>
+	<td>
+		2011/01/04 10:44
+	</td>
+	<td>
+　　　xxxxxxxxxx
+	</td>
+	<td>
+　　https://ibm.ent.box.com/folder/xxxxxxxxxxxxxxxxxxxx
+	</td>
+
+</tr>
+
+</table>
+</div>
+
+<!--- w3ds template --->
+<!--
+<div class="ds-button-group-h ds-row ds-mar-b-1 ds-mar-l-r-0">
+	<span id="download_button">
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-4 _ds-offset-8" id="search_all" onclick="download();">
+	<span class="ds-icon-download ds-text-contextual-green-5" tabindex="0" role="text" aria-label="admin">
+	Download CSV File</span></button>
+	</span>
+</div>
+-->
+
+<!-- w3ds template -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TSS IT J Funnel MGMT</title>
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body class="ds-has-sticky-footer">
+
+<!--
+	How to set up the w3 Masthead
+	https://w3.ibm.com/w3-masthead/
+-->
+<a href="https://w3.ibm.com/"
+	id="ds-w3-injectable-nav"
+	data-layout="1"
+	data-height="79"
+	data-breakpoint="sm"
+	target="_blank">w3</a>
+<script type="text/javascript" src="https://w3.ibm.com/w3-masthead/plugins/w3-masthead/w3-masthead.js"></script>
+
+<div class="ds-grid">
+	<div class="ds-row">
+		<div class="ds-col-12">
+			<div class="ds-row ds-pad-t-3">
+				<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+					<!-- img src="../images/w3ds-logo.svg" class="ds-pad-b-1" alt="w3DS" -->
+					<div class="ds-row ds-bg-dark ds-pad-t-2_5" style="background-image: url(/images/hd-mac-2101187.jpg);background-position:center;background-size:cover;background-repeat:no-repeat;">
+						<div class="ds-col-xs-10 ds-offset-xs-1 ds-col-lg-8 ds-offset-lg-2 ds-col-xl-6 ds-offset-xl-3 ds-text-align-left ds-shadow-text">
+							<div class="ds-row ds-mar-b-2">
+								<div class="ds-col-12">
+									<h1 class="ds-heading-1 ds-mar-b-0">
+										<p class="ds-font-weight-bold ds-text-align-center">
+											Client Support IT
+										</p>
+									</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+<!--							<h1 class="ds-heading-md-2 ds-heading-lg-1">Client Support IT</h1>
+					<p class="ds-mar-0"> -->
+<!--- w3ds template --->
+
+<div class="ds-row">
+<div class="ds-col-12">
+		<p class="ds-caption-small">
+
+		</p>
+</div>
+</div>
+
+<!--
+<div class="ds-button-group-h ds-row ds-mar-b-1">
+<button class="ds-col-4 ds-offset-0 ds-button ds-basic ds-truncate" onclick="redirectTo('./comprehensive_contract/index.html');">
+-->
+
+<div class="ds-tabs">
+	<div class="ds-col-12">
+		<div class="ds-tab-controls ds-scrollable ds-tabs-fit-content" role="tablist">
+			<button data-element="tab-content-1" class="ds-button ds-primary" tabindex="0" aria-selected="false" role="tab" aria-controls="tab1" onclick="redirectTo('/index.html');">Web App</button>
+			<button data-element="tab-content-2" class="ds-button ds-primary" tabindex="0" aria-selected="false" role="tab" aria-controls="tab2" onclick="redirectTo('/tss_portal/link.html');">Link</button>
+			<button data-element="tab-content-3" class="ds-button ds-primary ds-selected" aria-selected="true" role="tab" aria-controls="tab3">Funnel</button>
+			<button data-element="tab-content-4" class="ds-button ds-primary" tabindex="0" aria-selected="false" role="tab" aria-controls="tab4" onclick="redirectTo('/tss_portal/squad.html');">Japan Squads</button>
+			<button data-element="tab-content-5" class="ds-button ds-primary" tabindex="0" aria-selected="false" role="tab" aria-controls="tab5" onclick="redirectTo('/tss_portal/project_2018.html');">2018 Released</button>
+		</div>
+	</div>
+<h5 class="ds-mar-t-1">TSS IT Japan Funnel Management</h5>
+
+<script>
+	$(function(){
+		$("#download_button").hide();
+	});
+
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+
+	const searchData = (url) => {
+
+		$("#table_contents").empty();
+
+		fetch(url)
+			.then((response) => response.json())
+			.then((body_docs) => {
+				createTable(body_docs);
+		});
+
+		if (url == "/tss_portal/search?type=api&action=select&status=all") {
+			$("#download_button").show();
+		} else {
+			$("#download_button").hide();
+		}
+	}
+
+	const createTable = (body_docs) => {
+
+		if (Object.keys(body_docs).length != 0) {
+
+			var param = '<table class="ds-table ds-table-compact ds-striped">\n';
+			param += '<tr class="ds-bg-contextual-blue-3">\n';
+			param += '<th>No</th>\n';
+			param += '<th>Business</th>\n';
+			param += '<th>Category</th>\n';
+			param += '<th>Feature</th>\n';
+			param += '<th>Investment</th>\n';
+			param += '<th>Benefits</th>\n';
+			param += '<th>Progress</th>\n';
+			param += '<th>Backlog Date</th>\n';
+			param += '<th>Start Date</th>\n';
+			param += '<th>S/I Plan</th>\n';
+			param += '<th>S/I Date</th>\n';
+			param += '<th>Lead Time</th>\n';
+			param += '<th>Cycle Time</th>\n';
+			param += '<th>Squad</th></tr>\n';
+
+			for (i = 0; i < Object.keys(body_docs).length; i++) {
+				param += "<tr><td>" + body_docs[i].no + "</td>\n";
+
+				param += "<td>" + body_docs[i].business + "</td>\n";
+
+				param += "<td nowrap>\n";
+
+				switch (body_docs[i].category) {
+					case "Transform":
+						param += '<span class="ds-icon-tools" tabindex="0" role="text" aria-label="admin"></span>\n';
+						break;
+					case "Technical Debt":
+						param += '<span class="ds-icon-info" tabindex="0" role="text" aria-label="admin"></span>\n';
+						break;
+					case "Improve":
+						param += '<span class="ds-icon-recommended" tabindex="0" role="text" aria-label="admin"></span>\n'
+						break;
+					case "Legal/Tax Control":
+						param += '<span class="ds-icon-attachment" tabindex="0" role="text" aria-label="admin"></span>\n'
+						break;
+					case "Strategic":
+						param += '<span class="ds-icon-paste" tabindex="0" role="text" aria-label="admin"></span>\n';
+						break;
+					case "Sysmod":
+						param += '<span class="ds-icon-settings" tabindex="0" role="text" aria-label="admin"></span>\n'
+						break;
+				}
+				param += body_docs[i].category + "</td>\n";
+
+				param += "<td>";
+				param += body_docs[i].feature;
+				param += "<br>[<a href='/tss_portal/update?type=ejs&action=select&id=" + body_docs[i]._id + "'><span class='ds-icon-edit'>編集</a>]";
+				param += "</td>\n";
+
+				param += '<td class="ds-text-align-right"><span class="ds-text-contextual-yellow-4 ds-heading-3 ds-font-weight-bold">' + body_docs[i].investment + "</span></td>\n";
+
+				param += "<td>" + body_docs[i].benefits + "</td>\n";
+
+				param += "<td>\n";
+				switch (body_docs[i].progress) {
+					case "On Going":
+						param += '<span class="ds-text-contextual-blue-4 ds-font-weight-bold">\n';
+						break;
+					case "Delay":
+						param += '<span class="ds-text-contextual-red-3 ds-font-weight-bold">\n';
+						break;
+					case "Done":
+						param += '<span class="ds-text-contextual-green-4 ds-font-weight-bold">\n';
+						break;
+					case "Backlog":
+						param += '<span class="ds-text-contextual-red-2 ds-font-weight-bold">\n';
+						break;
+				}
+				param += body_docs[i].progress + "</span></td>\n";
+
+				param += "<td>" + body_docs[i].backlog_date + "</td>\n";
+
+				param += "<td>" + body_docs[i].start_date + "</td>\n";
+
+				param += "<td>" + body_docs[i].si_plan + "</td>\n";
+
+				param += "<td>\n";
+				switch (body_docs[i].si_date) {
+					case "Cancel":
+						param += '<span class="ds-text-contextual-yellow-4 ds-font-weight-bold">\n'
+						break;
+					default:
+						param += '<span>';
+						break;
+				}
+				param += body_docs[i].si_date + "</span></td>";
+
+				param += '<td class="ds-text-align-right">' + body_docs[i].lead_time + "</td>\n";
+
+				param += '<td class="ds-text-align-right">' + body_docs[i].cycle_time + "</td>\n";
+
+				param += "<td>" + body_docs[i].squad + "</td></tr>\n";
+
+			}
+			$("#table_contents").append(param);
+		}
+	}
+
+	const getCurrentTime = () => {
+		var date = new Date();
+
+		var d = date.getFullYear()
+			+ ('0' + (date.getMonth() + 1)).slice(-2)
+			+ ('0' + date.getDate()).slice(-2)
+			+ ('0' + date.getHours()).slice(-2)
+			+ ('0' + date.getMinutes()).slice(-2)
+			+ ('0' + date.getSeconds()).slice(-2);
+
+		return d;
+	};
+
+	const download = () => {
+		current_timestamp = getCurrentTime();
+
+		var dl = document.createElement("a");
+		dl.download = "TSS_Portal_DB_" + current_timestamp + ".csv"; // Download File Name
+		dl.href = "/tss_portal_all_data.csv";
+		dl.dataset.downloadurl = ["text/plain", dl.href].join(":");
+
+		dl.click();
+	}
+</script>
+
+<div class="ds-button-group-h ds-row ds-mar-b-1 ds-mar-l-r-0">
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-2" id="search_ongoing" onclick="searchData('/tss_portal/search?type=api&action=select&status=ongoing');">
+	<span class="ds-icon-transfer ds-text-contextual-blue-3" tabindex="0" role="text" aria-label="admin">
+	On Going</span></button>
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-2" id="search_backlog" onclick="searchData('/tss_portal/search?type=api&action=select&status=backlog');">
+	<span class="ds-icon-dashboard ds-text-contextual-red-2" tabindex="0" role="text" aria-label="admin">
+	Backlog</span></button>
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-2" id="search_sysmod" onclick="searchData('/tss_portal/search?type=api&action=select&status=sysmod');">
+	<span class="ds-icon-settings ds-text-contextual-yellow-5" tabindex="0" role="text" aria-label="admin">
+	Sysmod</span></button>
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-2" id="search_release" onclick="searchData('/tss_portal/search?type=api&action=select&status=release');">
+	<span class="ds-icon-recommended ds-text-contextual-green-3" tabindex="0" role="text" aria-label="admin">
+	Release</span></button>
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-2" id="search_all" onclick="searchData('/tss_portal/search?type=api&action=select&status=all');">
+	<span class="ds-icon-wiki ds-text-contextual-green-5" tabindex="0" role="text" aria-label="admin">
+	All</span></button>
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-2" id="search_all" onclick="redirectTo('/tss_portal/update?type=ejs&action=new');">
+	<span class="ds-icon-edit ds-text-contextual-red-2" tabindex="0" role="text" aria-label="admin">
+	New</span></button>
+</div>
+
+<div class='ds-table-container ds-col-12'>
+<div id="table_contents"></div>
+</div>
+
+<div class="ds-button-group-h ds-row ds-mar-b-1 ds-mar-l-r-0">
+	<span id="download_button">
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-4 _ds-offset-8" id="search_all" onclick="download();">
+	<span class="ds-icon-download ds-text-contextual-green-5" tabindex="0" role="text" aria-label="admin">
+	Download CSV File</span></button>
+	</span>
+</div>
+
+
+<!--- w3ds template --->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

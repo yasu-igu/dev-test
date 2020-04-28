@@ -1,0 +1,69 @@
+_id, _rev, no, business, category, feature, investment, benefits, progress, backlog_date, start_date, si_plan, si_date, lead_time, cycle_time, squad
+2bbaebb3c7d17b5d84ce453de938d5f3,2-9786d6fe44903f9a36c4f08af066b571,,CISCO,Sysmod,DB2 ATS Client Version Up,3,undefined,Done,,,2019/01/10,undefined,5,5,O2C
+2bbaebb3c7d17b5d84ce453de9392959,2-b710c444229aaa2d5ff6296c24f8b7cf,,Call Management,Technical Debt,Add CEDS CD03HC16 condition check function,1,undefined,Done,,,,undefined,7,6,O2O
+2bbaebb3c7d17b5d84ce453de93969d7,1-5548a5fab195fc79991fdfc91045682b,,MA BID,Legal/Tax Control,Akamai deployment for BPRS,3,undefined,Done,,,,undefined,60,40,O2C
+2bbaebb3c7d17b5d84ce453de9396f65,1-5685cb73e0724b3f47cefc67ab6ef2d0,,Maint Extension,Transform,Comprehensive contract inquiry function,5,undefined,Done,,,,undefined,35,12,OEM
+2bbaebb3c7d17b5d84ce453de9398ef8,1-aa3b55ff5497b9d5c874d837028df7c0,,SPO,Transform,NPS on Parts Inspection Report Workflow,2,undefined,Done,,,,undefined,1,1,OEM
+2ecf49c5ddea97c950ed703fe9327155,1-3cf915a8d97efdfbe2de5ace521dc9d9,,CISCO,Improve,Add multi-value searching function on CISCO,2,undefined,Done,,,,undefined,50,40,O2C
+2ecf49c5ddea97c950ed703fe932b7dc,1-aa0d13b4121874922f6239ac52d46e92,,Network OEM,Transform,ePILON Smart License,8,undefined,Done,,,,undefined,40,33,OEM
+46219a4cbcadc1577d875ffc307c0266,2-c2bd5e4ae28fe6566f97dbbf32431453,,Call Management,Sysmod,RCCN MQ encription action,3,undefined,On Going,,,,undefined,,,B2B
+4ab47d65b0612dda6c366219913aba67,6-cfe22aeabda4c6ca8ad061584edbd70d,006,SPO,Transform,I/O Print sunset: D/S to Xmit,5,undefined,On Going,2019/04/01,2019/06/05,2019/06/20,undefined,,,OEM
+55d0636c36923eb742d17452bc287823,3-cbb0bf44ce7c11341ca7b0496df75457,,Basic Selection,Sysmod,Java8 upgrade,3,undefined,On Going,,,2019/05/31,undefined,,,OEM
+55d0636c36923eb742d17452bc287bc1,3-2d4b6a782b82e46010bc3e3ddee3233b,,MA BID,Sysmod,Java8 upgrade,3,undefined,Done,,,2019/05/10,undefined,12,10,O2C
+55d0636c36923eb742d17452bc28ad1e,3-1b65cd5b003ff4299fda3586c9759283,,HSBC,Transform,HSBC B2B Connection,8,undefined,Backlog,,,,undefined,,,
+55d0636c36923eb742d17452bc290acd,3-d5bcb378c27db3c43ce1c6b409575c17,,Maint Extension,Transform,PIMS Inventory forecast modeling,13,undefined,Backlog,,,,undefined,,,
+55d0636c36923eb742d17452bc294e0c,1-133d4ae55de6a295b55e36d7feba0633,,Network OEM,Transform,ePILON small enhancements: ELS Deployment,3,undefined,Done,,,,undefined,88,10,OEM
+630789d57c95b422413d46aa9d06e7eb,1-211dbf15bfdf9aa7a68ad85839ed72ae,,CISCO,Improve,Add searching by uploading file on CISCO,2,undefined,Done,,,,undefined,30,26,O2C
+630789d57c95b422413d46aa9d06f8c6,1-5a6a09dfb3575efb0d0084bb10628302,,CISCO,Legal/Tax Control,Access Hub SSL connection,100,undefined,Done,,,,undefined,45,25,O2C
+630789d57c95b422413d46aa9d074669,1-c709b786e810786e11433d307645dd09,,Maint Extension,Improve,Request term change in Notes DB,2,undefined,Done,,,,undefined,8,1,B2B
+630789d57c95b422413d46aa9d0764d6,3-5794c11f77ce671cd27025cfc47204ab,,Percall,Legal/Tax Control,CS Contract enhancement for new era,5,undefined,Backlog,,,,undefined,,,
+7e1db294fddc90720df1a9964426080d,2-805c69ea1cce2f875babf6836365fe68,004,Maint Extension,Transform,Maint Extension Web Application,40,undefined,Delay,2019/01/01,2019/01/01,2019/06/28,undefined,,,OEM
+7e1db294fddc90720df1a99644260ce6,4-b25284636d39187a3867892fdcb4b865,,Call Management,Technical Debt,Lenovo ServicePac abend prevention,2,undefined,Done,2019/04/15,2019/04/15,2019/05/13,undefined,20,15,O2O
+7e1db294fddc90720df1a99644261d06,4-14b74fafb14d5db900bb58834e6a73d5,003,Percall,Transform,Percall Digitalization ,40,undefined,On Going,2019/03/18,2019/03/18,2019/10/10,undefined,,,OEM
+7e1db294fddc90720df1a9964426605d,2-9c8349e512cf709e518c6637256bc660,,Call Management,Improve,SPSS Education,2,undefined,Done,,,,undefined,16,5,OEM
+80f94466d404279ce43c0cbf5ebc6481,7-8807d49f6408664705b1e96a0e77b6e3,001,Sales,Strategic,Contract API for TSS Sales,8,undefined,On Going,2019/04/15,2019/04/15,2018/05/30,undefined,,,OEM
+80f94466d404279ce43c0cbf5ebc6714,3-ed2b9ddf38fd97e4305bfd9bec92c300,,Call Management,Transform,SERMON Security Action,100,undefined,Done,2018/11/01,2018/11/01,2019/02/20,undefined,130,110,O2O
+80f94466d404279ce43c0cbf5ebca511,3-8006fd6ddc0c31b8aeab3c4bf659042f,,MA BID,Sysmod,DB2 SSL,3,undefined,Done,,,2019/05/24,undefined,9,5,O2C
+80f94466d404279ce43c0cbf5ebcd02a,1-cc7305f91f7170172e76ba718448ac61,,CISCO,Improve,CISCO RMA 89039619 - ECIID 0404941XML,3,undefined,Done,,,,undefined,126,126,B2B
+80f94466d404279ce43c0cbf5ebd39ae,1-24753f1755aba4826962daea58eba376,,Maint Extension,Transform,Parts Inventory calculation automatically via SPSS 2,2,undefined,Done,,,,undefined,9,4,OEM
+80f94466d404279ce43c0cbf5ebd3d88,1-46a888fafc46bb16603b848827ae76ef,,Network OEM,Transform,ePILON ELS follow on,2,undefined,Done,,,,undefined,18,9,OEM
+80f94466d404279ce43c0cbf5ebd68f1,1-28a8ace0fccadeb85523dc7afbd01895,,SPO,Transform,Crawling on CISCO Inv to get Network Parts info(Change output Layout),3,undefined,Done,,,,undefined,1,1,OEM
+8de4698a5e952b846d5814cf1df53a91,2-cce59a704440617f947ffee63676bde8,002,Percall,Transform,PagerDuty on Parts Inspection Report Workflow,2,undefined,Delay,2019/02/04,2019/02/04,2018/02/28,undefined,,,OEM
+8de4698a5e952b846d5814cf1df586a8,1-07d25ac2390cb8e4d3ea3b413737b42b,,CISCO,Improve,CISCO product all list via SPSS,1,undefined,Done,,,,undefined,12,7,OEM
+8de4698a5e952b846d5814cf1df5a8f9,1-778d6f82142bcd92645d0822de69aa64,,MA BID,Technical Debt,Reduce repetitive operation for submitting re-apply function,2,undefined,Done,,,,undefined,17,7,O2C
+8de4698a5e952b846d5814cf1df5acd2,1-86f3f600b45a0fa6659eca066a880385,,MA BID,Transform,Workflow Change Action on BPRS: MF DB creation and data initial for workflow change,3,undefined,Done,,,,undefined,55,40,O2C
+8de4698a5e952b846d5814cf1df5c8f3,1-668cc79967ca529e6b6a9ee03661a2f3,,Network OEM,Transform,SPSS Backlog_summary report alteration for Smart license,2,undefined,Done,,,,undefined,40,10,OEM
+b2d58c6129212e6e004566faf9eaceeb,3-482475af9e1dbb3f9c061b4e389f4f00,,Call Management,Strategic,MVS Contracts Management System,20,undefined,Backlog,2019/04/01,,2019/09/30,undefined,,,
+b2d58c6129212e6e004566faf9eadc03,4-e1d3c92e86c082c4c94e914b70b1cbb9,,CEDS,Sysmod,CEDS CICS Version Up v5.2-v5.4,3,undefined,Done,,,2019/05/31,undefined,45,35,O2O
+b2d58c6129212e6e004566faf9eafcaa,4-4c50f2ff03656c79604a4826205ffc99,,MIG,Sysmod,MIG Win7 replacement,3,undefined,Done,,2019/04/01,2019/04/30,undefined,27,26,B2B
+b2d58c6129212e6e004566faf9eb09da,1-7a3cfebdc1105f35a4d8884544816c66,,CISCO,Improve,Access Hub Workflow Change,2,undefined,Done,,,,undefined,50,40,O2C
+b2d58c6129212e6e004566faf9eb1fe6,1-8fad04d5dd9aeadd39ecc1059f9c95ec,,Basic Selection,Transform,DMaS Copy function,2,undefined,Done,,,,undefined,11,8,OEM
+b2d58c6129212e6e004566faf9eb3234,1-f1ca2e5e2aa0f9b39d707386114d2726,,MA BID,Transform,MA BID automation by Selenium,2,undefined,Done,,,,undefined,30,29,OEM
+b2d58c6129212e6e004566faf9eb3de9,1-5add6d6c2bae168f31b572e04ba16b8a,,MA BID,Technical Debt,Add name or ID for button for operation automation,1,undefined,Done,,,,undefined,14,6,O2C
+b2d58c6129212e6e004566faf9eb57fb,1-25ec897b1da6e7b87c281b1517fc576d,,MA BID,Technical Debt,Prompt date empty(show warning message) in re-apply function,1,undefined,Done,,,,undefined,25,15,O2C
+b2d58c6129212e6e004566faf9eb9f5a,1-664d64cf561453e0e609d3678b123eca,,New,Strategic,L Corp RFP,8,undefined,Done,,,,undefined,35,35,OEM
+b4ea36bbdcbdc11678538efbb9c6fc8c,2-24d782ca84e4588db89e2eb5be8d283a,,Call Management,Improve,Add new SR Call data to Queue,2,undefined,Done,,,,undefined,2,2,O2O
+b4ea36bbdcbdc11678538efbb9c70a22,5-582e0a26d3f54fbd76ef39c1eae77d38,,Call Management,Improve,Change CM30 SC86, AC31 code,2,undefined,Done,,,,undefined,10,10,O2O
+b4ea36bbdcbdc11678538efbb9c76bb5,2-57685526aa0928ae1ea4edd889da93ac,,Indigo,Strategic,DELL eROF,20,undefined,,,,,undefined,,,
+b4ea36bbdcbdc11678538efbb9c7c799,1-1db6c1de7ce7b8af3a7c155b94149491,,SPO,Transform,Crawling on CISCO Inv to get Network Parts info,40,undefined,Done,,,,undefined,15,15,OEM
+c1ee7b8022c0674a7ac318c87008d34c,1-44e57259d09bf0f54062732766ac39d4,,CISCO,Transform,NPS on CISCO Inv,2,undefined,Done,,,,undefined,40,25,O2C
+c1ee7b8022c0674a7ac318c87008f2d2,2-9f33c225add2378e644466970a45db56,,MA BID,Technical Debt,Bug Fix: BP user info can't be added/updated/queried,2,undefined,Done,,,,undefined,13,8,O2C
+c1ee7b8022c0674a7ac318c870092a58,3-f6ae84b6c97f3a73fe0aab50135d7b18,,MAS Accrual,Transform,SW Accrual on CM30,20,undefined,Backlog,,,,undefined,,,
+cf1d5e3af53b13e245144864e2383c62,1-e92821ea0cf5f2b979efd51094a3c87f,,Retain I/F,Technical Debt,Change programs' BU count control (Abend prevention),2,undefined,Done,2019/05/27,2019/05/27,2019/05/29,undefined,2,2,O2O
+e01acd87b36a46361d97d551bcd1dd08,3-f95abeaa191ef8e1102b13351dac2c89,007,Call Management,Transform,Watson chatbot for planning,5,undefined,On Going,2019/04/01,2019/04/01,2019/06/30,undefined,,,OEM
+f2ef4d583743453bbf26926b94e97a1e,1-b731932e643e3d67ae28d8456e996029,,CISCO,Legal/Tax Control,Struts(w3) Vulnerability Response,2,undefined,Backlog,2018/12/01,,2019/11/30,undefined,,,
+f2ef4d583743453bbf26926b94e99148,1-1c0dc2e54d970e5e86f66fdba5f0db0f,,Basic Selection,Legal/Tax Control,Akamai deployment for DMaS,3,undefined,Done,,,,undefined,54,46,OEM
+f2ef4d583743453bbf26926b94e9a99a,2-f650b6d56b8938190465a15078559854,,Call Management,Technical Debt,Prevent MIG PCOMM session down,2,undefined,,,,,undefined,,,
+f2ef4d583743453bbf26926b94e9b8b5,2-4f7679888af01e59819c8e66d170743a,,CISCO,Technical Debt,Add additional Search button,2,undefined,Done,,,,undefined,14,9,O2C
+f2ef4d583743453bbf26926b94ea3538,1-3463f1f620effaa986fa701b5dc56a28,,Network OEM,Transform,NPS on ePILON,2,undefined,Done,,,,undefined,42,8,OEM
+f2ef4d583743453bbf26926b94ea3885,1-3474697c3162dd5751dddba88164a83e,,SPO,Transform,Parts Inspection Report Workflow: UI Revise,5,undefined,Done,,,,undefined,8,8,OEM
+f805f3fe3f52a3395a34e725fcc3b913,2-643bca33bf7a130a3f0ca7333ff85221,005,MA BID,Legal/Tax Control,Struts(w3) Vulnerability Response,100,undefined,On Going,2019/04/01,2019/04/01,2019/08/30,undefined,,,O2C
+f805f3fe3f52a3395a34e725fcc3cfb2,1-793ae6857ada14580ae8175383a62d13,,MA BID,Transform,NPS on BPRS,2,undefined,Backlog,2019/01/01,,2019/04/30,undefined,,,
+f805f3fe3f52a3395a34e725fcc3e4bc,3-faef9b79e11813cc51c26a6f7912096e,,CISCO,Sysmod,Java8 upgrade,3,undefined,Done,,,2019/04/19,undefined,20,15,O2C
+f805f3fe3f52a3395a34e725fcc3efdc,3-dfed4f17598e727a857f3562bfb16bd3,,CISCO,Sysmod,DB2 SSL（For Application）,3,undefined,Done,,,2019/05/17,undefined,18,15,O2C
+f805f3fe3f52a3395a34e725fcc42465,1-aed63564b4f80a8c2ef647a8560b1a87,,Basic Selection,Transform,Measurements of service contracts sheet entry,5,undefined,Done,,,,undefined,32,22,OEM
+f805f3fe3f52a3395a34e725fcc435a6,1-9ba9381759443e90616118d9ce50b8bc,,Basic Selection,Transform,DMaS Entry Sheet upload function,8,undefined,Done,,,,undefined,49,32,OEM
+f805f3fe3f52a3395a34e725fcc443e8,2-106db24fe86d815f1635c4e71f03d895,,Call Management,Transform,Change RCMS TSS Dept (west japan) new queue's reorg function,2,undefined,Done,,,,undefined,10,10,O2O
+f805f3fe3f52a3395a34e725fcc4d004,1-67c511f142ab2c29e462c6efb5c81565,,MA BID,Technical Debt,Requests with old Region Code also can be re-submitted when Region Code is changed.,1,undefined,Done,,,,undefined,6,4,O2C
+f805f3fe3f52a3395a34e725fcc4df47,1-719861d1264f950c573abcee01b8096d,,MA BID,Transform,Workflow Change Action on BPRS,20,undefined,Done,,,,undefined,90,70,O2C
+f805f3fe3f52a3395a34e725fcc535ce,4-feb345229936f29fb7967ba90c99a219,,SPO,Transform,Crawling on CISCO Inv to get Network Parts info(EOS / EOL acquisition, S / N duplicate delete),3,undefined,Done,,,,undefined,7,7,OEM

@@ -1,0 +1,25 @@
+{
+    "cloudantNoSQLDB Dedicated": [
+        {
+            "credentials": {
+                "username": "ddb2a3e9-39b3-459c-aa7c-fa3185436f6f-bluemix",
+                "password": "c4329a482f4047ced255a4877f6d60f0c3cd67fadb5830159756e0a2fd1ed873",
+                "host": "ddb2a3e9-39b3-459c-aa7c-fa3185436f6f-bluemix.cloudant.com",
+                "port": 443,
+                "url": "https://ddb2a3e9-39b3-459c-aa7c-fa3185436f6f-bluemix:c4329a482f4047ced255a4877f6d60f0c3cd67fadb5830159756e0a2fd1ed873@ddb2a3e9-39b3-459c-aa7c-fa3185436f6f-bluemix.cloudant.com"
+            },
+            "syslog_drain_url": null,
+            "volume_mounts": [],
+            "label": "cloudantNoSQLDB Dedicated",
+            "provider": null,
+            "plan": "Shared Dedicated",
+            "name": "tss-portal2_db",
+            "tags": [
+                "data_management",
+                "ibm_created",
+                "lite",
+                "dedicated"
+            ]
+        }
+    ]
+}

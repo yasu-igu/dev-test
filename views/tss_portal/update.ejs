@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TSS IT J Funnel MGMT:Update</title>
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body class="ds-has-sticky-footer">
+
+<!-- Animation -->
+<!--div class="ds-slide-up ds-animation-delay-30" -->
+
+<!--
+	How to set up the w3 Masthead
+	https://w3.ibm.com/w3-masthead/
+-->
+<a href="https://w3.ibm.com/"
+	id="ds-w3-injectable-nav"
+	data-layout="1"
+	data-height="79"
+	data-breakpoint="sm"
+	target="_blank">w3</a>
+<script type="text/javascript" src="https://w3.ibm.com/w3-masthead/plugins/w3-masthead/w3-masthead.js"></script>
+
+		<div class="ds-grid">
+			<div class="ds-row">
+				<div class="ds-col-12">
+					<div class="ds-row ds-pad-t-1">
+						<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+							<!-- img src="./images/w3ds-logo.svg" class="ds-pad-b-1" alt="w3DS" -->
+							<!-- h1 class="ds-heading-md-2 ds-heading-lg-1">TSS IT Japan Funnel Management: Update</h1 -->
+							<h3 class="ds-heading-3 ds-mar-b-0 ds-font-weight-bold">TSS IT Japan Funnel Management: Update</h3>
+							<!-- p class="ds-mar-b-0" -->
+
+<!--- w3ds template --->
+
+<script>
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+
+	const update = () => {
+
+		update_docs = {};
+
+		update_docs._id = updateData._id.value;
+		update_docs._rev = updateData._rev.value;
+		update_docs.no = updateData.no.value;
+		update_docs.business = updateData.select_menu_business.value;
+		update_docs.category = updateData.select_menu_category.value;
+		update_docs.feature = updateData.feature.value;
+		update_docs.investment = updateData.investment.value;
+		update_docs.benefits = updateData.select_menu_benefits.value;
+		update_docs.progress = updateData.select_menu_progress.value;
+		update_docs.backlog_date = updateData.backlog_date.value;
+		update_docs.start_date = updateData.start_date.value;
+		update_docs.si_plan = updateData.si_plan.value;
+		update_docs.si_date = updateData.si_date.value;
+		update_docs.lead_time = updateData.lead_time.value;
+		update_docs.cycle_time = updateData.cycle_time.value;
+		update_docs.squad = updateData.select_menu_squads.value;
+
+		url = '/tss_portal/update?type=ejs&action=update&update_docs=' + JSON.stringify(update_docs)
+//		alert(url)
+		redirectTo(url);
+	}
+
+	const deleteData = () => {
+		update_docs = {};
+
+		update_docs._id = updateData._id.value;
+		update_docs._rev = updateData._rev.value;
+
+		url = '/tss_portal/update?type=ejs&action=delete&update_docs=' + JSON.stringify(update_docs)
+//		alert(url)
+		redirectTo(url);
+	}
+</script>
+
+
+<div class="ds-table-container">
+	<form name="updateData">
+	<input type="hidden" class="ds-input" value="<%= body_docs[0]._id %>" id="_id" size=1 maxlength=256>
+	<input type="hidden" class="ds-input" value="<%= body_docs[0]._rev %>" id="_rev" size=1 maxlength=256>
+	<table class="ds-table ds-striped">
+<!--
+		<thead>
+			<tr>
+				<th>Data 1</th>
+				<th>Data 2</th>
+			</tr>
+		</thead>
+-->
+		<tbody>
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">No (3桁、Ongoing/Delayのみ)</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-11">
+						<input type="text" class="ds-input" value="<%= body_docs[0].no %>" id="no" size=1 maxlength=3>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Business</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-11">
+						<div class="ds-select">
+							<select id="select_menu_business" required>
+
+<%
+	var options_business = [ "", "Basic Selection", "Call Management", "CEDS", "CISCO", "DMaS", "HSBC", "Indigo", "MA BID", "Maint Extension", "MAS Accrual", "MIG", "Network OEM", "New", "Percall", "Sales", "SPO"];
+
+	for ( var i = 0; i < options_business.length; i++ )
+	{
+		var selected = ( body_docs[0].business == options_business[i] ) ? "selected" : "";
+%>
+		<option value="<%= options_business[i] %>" <%=selected %>><%= options_business[i] %></option>
+<%
+	}
+%>
+							</select>
+						</div>
+					</div>
+				</td>
+			<!/tr>
+			<!tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Category</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<div class="ds-select">
+							<select id="select_menu_category" required>
+
+<%
+	var options_category = [ "", "Improve", "Legal/Tax Control", "Strategic", "Sysmod", "Technical Debt", "Transform" ];
+
+	for ( var i = 0; i < options_category.length; i++ )
+	{
+		var selected = ( body_docs[0].category == options_category[i] ) ? "selected" : "";
+%>
+		<option value="<%=options_category[i] %>" <%=selected %>><%= options_category[i] %></option>
+<%
+	}
+%>
+
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Feature</td>
+				<td colspan=3>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs[0].feature %>" id="feature" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Investment</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-11">
+						<input type="text" class="ds-input" value="<%= body_docs[0].investment %>" id="investment" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Benefits</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-11">
+						<div class="ds-select">
+							<select id="select_menu_benefits" required>
+
+<%
+	var options_benefits = [ "", "Digital Adoption", "Improved Systems of Engagement", "Leapfrog Competition", "Lower IT Cost", "Optimal Customer Experience", "Security", "Value from Data" ];
+
+	for ( var i = 0; i < options_benefits.length; i++ )
+	{
+		var selected = ( body_docs[0].benefits == options_benefits[i] ) ? "selected" : "";
+%>
+		<option value="<%=options_benefits[i] %>" <%=selected %>><%= options_benefits[i] %></option>
+<%
+	}
+%>
+
+							</select>
+						</div>
+					</div>
+				</td>
+			<!/tr>
+			<!tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Progress</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<div class="ds-select">
+							<select id="select_menu_progress" required>
+
+<%
+	var options_progress = [ "", "On Going", "Backlog", "Done", "Delay" ];
+
+	for ( var i = 0; i < options_progress.length; i++ )
+	{
+		var selected = ( body_docs[0].progress == options_progress[i] ) ? "selected" : "";
+%>
+		<option value="<%=options_progress[i] %>" <%=selected %>><%= options_progress[i] %></option>
+<%
+	}
+%>
+
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Backlog Date (yyyy/mm/dd)</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-11"">
+						<input type="text" class="ds-input" value="<%= body_docs[0].backlog_date %>" id="backlog_date" size=1 maxlength=256>
+					</div>
+				</td>
+			<!/tr>
+			<!tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Start Date (yyyy/mm/dd)</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs[0].backlog_date %>" id="start_date" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">S/I Plan (yyyy/mm/dd)</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-11">
+						<input type="text" class="ds-input" value="<%= body_docs[0].si_plan %>" id="si_plan" size=1 maxlength=256>
+					</div>
+				</td>
+			<!/tr>
+			<!tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">S/I Date (yyyy/mm/dd)</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs[0].si_date %>" id="si_date" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Lead Time</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-11">
+						<input type="text" class="ds-input" value="<%= body_docs[0].lead_time %>" id="lead_time" size=1 maxlength=256>
+					</div>
+				</td>
+			<!/tr>
+			<!tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Cycle Time</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs[0].cycle_time %>" id="cycle_time" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="ds-text-small ds-label ds-font-weight-bold">Squad</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-11">
+						<div class="ds-select">
+							<select id="select_menu_squads" required>
+
+<%
+	var options_squads = [ "", "B2B", "O2C", "O2O", "OEM" ];
+
+	for ( var i = 0; i < options_squads.length; i++ )
+	{
+		var selected = ( body_docs[0].squad == options_squads[i] ) ? "selected" : "";
+%>
+		<option value="<%=options_squads[i] %>" <%=selected %>><%= options_squads[i] %></option>
+<%
+	}
+%>
+
+							</select>
+						</div>
+					</div>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+
+<!-- div class="ds-button-group-h ds-row ds-mar-t-b-1 ds-mar-l-r-0" -->
+<div class="ds-flex ds-flex-fill ds-flex-align-items-center ds-flex-row ds-mar-t-b-1">
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-3" id="search_ongoing" onclick="update();">
+	<span class="ds-icon-save ds-text-contextual-blue-3" tabindex="0" role="text" aria-label="admin">
+	Create / Update</span></button>
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-3 ds-offset-0" id="search_ongoing" onclick="redirectTo('/tss_portal/index.html');">
+	<span class="ds-icon-reset ds-text-contextual-yellow-4" tabindex="0" role="text" aria-label="admin">
+	Cancel</span></button>
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-3 ds-offset-3" id="search_ongoing" onclick="deleteData();">
+	<span class="ds-icon-trash ds-text-contextual-red-3" tabindex="0" role="text" aria-label="admin">
+	Delete</span></button>
+</div>
+
+</div>
+
+
+<!--- w3ds template --->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<!-- a href="https://w3.ibm.com/help/#/article/urt" -->
+					<a href="https://w3.ibm.com/help/">
+					<span class="ds-icon-help"></span> Get help with IBM</a>
+					</br>
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

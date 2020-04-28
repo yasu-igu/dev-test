@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="icon" href="/images/icon_mvs.png">
+		<title>JTB DB</title>
+
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" type="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body class="ds-has-sticky-footer" onload="setColor();">
+
+<!--
+	How to set up the w3 Masthead
+	https://w3.ibm.com/w3-masthead/
+-->
+<!--
+<a href="https://w3.ibm.com/"
+	id="ds-w3-injectable-nav"
+	data-layout="1"
+	data-height="79"
+	data-breakpoint="sm"
+	target="_blank">w3</a>
+<script type="text/javascript" src="https://w3.ibm.com/w3-masthead/plugins/w3-masthead/w3-masthead.js"></script>
+-->
+<!-- w3ds template -->
+
+<div class="ds-grid">
+	<div class="ds-row">
+		<div class="ds-col-12">
+			<!--div class="ds-row ds-pad-t-1" -->
+				<!-- div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3" -->
+
+					<img src="/images/JTB.jpg" class="ds-img-force-grow">
+					<!-- p class="ds-mar-0" -->
+
+
+
+            <div class="ds-row">
+              <div class="ds-col-12">
+                <p class="ds-caption-small">
+                </p>
+              </div>
+            </div>
+
+            <div class="ds-col-12">
+              <div class="ds-row">
+
+                <div class="ds-col-12 ds-pad-b-xs-1 ds-panel ds-panel-rounded ds-panel-floating">
+		              <div class="ds-panel-container ds-font-weight-bold">MVS Contract / Product Data</div>
+
+                  <div class="ds-row ds-col-4 ds-offset-1 ds-mar-t-1 ds-pad-l-r-1">
+                    <a class="ds-button" href="../mvms/mvs_contract.html" target="_blank"><span class="ds-icon-link-external">　MVS Contract Data</span></a>
+                  </div>
+									<div class="ds-row ds-col-4 ds-offset-2 ds-mar-t-1 ds-pad-l-r-1">
+										<a class="ds-button" href="../mvms/mvs_product.html" target="_blank"><span class="ds-icon-link-external">　MVS Product Descriptions</span></a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+<script>
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+</script>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- w3ds template -->
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

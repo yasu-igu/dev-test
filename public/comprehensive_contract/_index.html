@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>保守延長申請 : 包括契約照会</title>
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+    
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body class="ds-has-sticky-footer" onload="setColor();">
+
+<!--
+	How to set up the w3 Masthead
+	https://w3.ibm.com/w3-masthead/
+-->
+<a href="https://w3.ibm.com/"
+	id="ds-w3-injectable-nav"
+	data-layout="1"
+	data-height="79"
+	data-breakpoint="sm"
+	target="_blank">w3</a>
+<script type="text/javascript" src="https://w3.ibm.com/w3-masthead/plugins/w3-masthead/w3-masthead.js"></script>
+
+		<div class="ds-grid">
+			<div class="ds-row">
+				<div class="ds-col-12">
+					<div class="ds-row ds-pad-t-3">
+						<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+							<!-- img src="../images/w3ds-logo.svg" class="ds-pad-b-1" alt="w3DS" -->
+							<h1 class="ds-heading-md-2 ds-heading-lg-1">保守延長申請</h1>
+							<p class="ds-mar-0">
+<!--- w3ds template --->
+
+<h2>包括契約照会</h3>
+
+<form name="searchContract">
+<div class="ds-table-container ds-col-12">
+<table class="ds-table ds-table-compact">
+	<tr>
+		<td>M/T</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-4">
+			    <input type="text" class="ds-input" id="machine_type" placeholder="machine_type" name="machine_type" value="" maxlength=4>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Model</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-4">
+			    <input type="text" class="ds-input" id="model" placeholder="model" name="mmodel" value="" maxlength=3>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+</form>
+
+<div class="ds-button-group-h ds-row ds-mar-t-1">
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="search();">
+	<span class="ds-icon-search" tabindex="0" role="text" aria-label="admin"></span>
+	検索
+	</button>
+
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="redirectTo('../index.html');">
+	<span class="ds-icon-reset" tabindex="0" role="text" aria-label="admin"></span>
+	戻る
+	</button>
+</div>
+
+
+<p>
+<h5 class="ds-text-contextual-red-3 ds-text-italic">
+<span class="ds-icon-edit" tabindex="0" role="text" aria-label="admin"></span>
+メモ 「保守延長可能予想機器_SANSW_20181017(2年未満も含む)w承認番号.xlsx」
+<ul>
+サンプル
+<ol>
+"MTM": "1746A2D" 
+<br>
+"Product": "Storage"
+<br>
+"機種": "1746",
+<br>
+"型式": "A2D",
+<br>
+"装置名": "ＩＢＭ　Ｓｙｓｔｅｍ　Ｓｔｏｒａｇｅ　ＤＳ３５１２　デュアル・コントローラー",
+<br>
+"保守廃止日": "2019/12/31",
+<br>
+"保守延長期限": "2020/12/31",
+<br>
+"延長可能期間": "1年",
+<br>
+"予想Uplift": "50%",
+<br>
+"Remark": "1年自動OK(2018/10/5追加)",
+<br>
+"包括事前承認対象": "対象",
+<br>
+"条件": "承認番号18-MAE-3133-A"
+</ol>
+<br>
+
+<li>
+期間: 保守延長期限でOK？
+<li>
+所管番号: 条件に所管番号らしきデータがあるが...？
+<li>
+承認条件: どれが該当する？
+<li>
+w3認証はまだ
+</ul>
+</h3>
+</p>
+
+<script>	
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+	
+	const search = () => {
+		status = "OK";
+		if ((searchContract.machine_type.value.length != 4 ) || (searchContract.model.value.length != 3)) {
+			status = "NG";
+		}
+
+		param =  "./search?type=ejs&machine_type=" + searchContract.machine_type.value.toUpperCase() + "&model=" + searchContract.model.value.toUpperCase();
+		redirectTo(param);
+	}
+</script>
+
+<!--- w3ds template --->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

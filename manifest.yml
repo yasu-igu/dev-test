@@ -1,0 +1,8 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: dal1a.ciocloud.nonprod.intranet.ibm.com
+  name: dev-test
+  host: dev-test
+  disk_quota: 1024M

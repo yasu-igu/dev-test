@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>保守延長申請 : 包括契約検索結果</title>
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+    
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body class="ds-has-sticky-footer" onload="setParam();">
+		<div class="ds-grid">
+			<div class="ds-row">
+				<div class="ds-col-12">
+					<div class="ds-row ds-pad-t-3">
+						<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+							<!-- img src="../images/w3ds-logo.svg" class="ds-pad-b-1" alt="w3DS" -->
+							<h1 class="ds-heading-md-2 ds-heading-lg-1">保守延長申請</h1>
+							<p class="ds-mar-0">
+<!--- w3ds template --->
+
+<h2>包括契約検索結果</h3>
+
+
+<script>
+
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+	
+	const setParam = () => {
+		var arg = new Object;
+		var pair = location.search.substring(1).split('&');
+		for(var i=0; pair[i]; i++) {
+			var kv = pair[i].split('=');
+			arg[kv[0]]=kv[1];
+		} 
+
+		if (arg.status == "OK") {
+			
+			var param = "<div class='ds-table-container ds-col-12'>";
+			param += "<table class='ds-table ds-table-compact'>";
+			param += "<tr><td>Machine Type</td><td>" + arg.machine_type + "</td></tr>";
+			param += "<tr><td>Model</td><td>" + arg.model + "</td></tr>";
+			param += "<tr><td>期間</td><td>2016年3月4日〜2019年12月31日</td></tr>";
+			param += "<tr><td>保守料金のUplift</td><td>10,000円</td></tr>";
+			param += "<tr><td>承認条件</td><td>なし</td></tr>";
+			param += "<tr><td>書簡番号</td><td>ABC198765</td></tr></table></div>";
+			$("#summary").append(param);
+		} else {
+			$("#summary").append("<span class='ds-text-contextual-red-3'>＊包括契約の登録がありません。保守延長の申請はNotesDBで行ってください。</span>");
+		}
+	}
+</script>
+
+<div id="summary"></div>
+
+<div class="ds-button-group-h ds-row ds-mar-t-1">
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="redirectTo('./index.html');">
+	<span class="ds-icon-reset" tabindex="0" role="text" aria-label="admin">
+	戻る
+	</button>
+</div>
+
+
+<!--- w3ds template --->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

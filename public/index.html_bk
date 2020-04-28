@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Client Support IT</title>
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body class="ds-has-sticky-footer" onload="setColor();">
+
+<!--
+	How to set up the w3 Masthead
+	https://w3.ibm.com/w3-masthead/
+-->
+<a href="https://w3.ibm.com/"
+	id="ds-w3-injectable-nav"
+	data-layout="1"
+	data-height="79"
+	data-breakpoint="sm"
+	target="_blank">w3</a>
+<script type="text/javascript" src="https://w3.ibm.com/w3-masthead/plugins/w3-masthead/w3-masthead.js"></script>
+
+		<div class="ds-grid">
+			<div class="ds-row">
+				<div class="ds-col-12">
+					<div class="ds-row ds-pad-t-3">
+						<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+							<!-- img src="../images/w3ds-logo.svg" class="ds-pad-b-1" alt="w3DS" -->
+							<h1 class="ds-heading-md-2 ds-heading-lg-1">Client Support IT</h1>
+							<p class="ds-mar-0">
+<!--- w3ds template --->
+
+
+<!--
+<div class="ds-button-group-h ds-row ds-mar-b-1">
+	<button class="ds-col-4 ds-offset-0 ds-button ds-basic ds-truncate" onclick="redirectTo('./comprehensive_contract/index.html');">
+-->
+
+<div class="ds-tabs ds-row">
+  <div class=" ds-col-xs-10 ds-offset-xs-1">
+    <div class="ds-tab-controls" role="tablist">
+      <button data-element="tab-content-demo-1" class="ds-button ds-primary" role="tab" aria-controls="tab1">Web App</button>
+      <button data-element="tab-content-demo-2" class="ds-button ds-primary" role="tab" aria-controls="tab2">Link</button>
+      <button data-element="tab-content-demo-3" class="ds-button ds-primary" role="tab" aria-controls="tab3" onclick="redirectTo('/tss_portal/index.html');">Funnel</button>
+      <button data-element="tab-content-demo-4" class="ds-button ds-primary" role="tab" aria-controls="tab4">Japan Squads</button>
+    </div>
+  </div>
+
+  <div class="ds-tab-contents ds-col-12 ds-mar-t-2">
+    <div id="tab-content-demo-1" class="ds-tab-content ds-hide">
+      <h4 class="ds-heading-4">tab1</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quisquam iure distinctio. Amet repellendus dolores deserunt iure tempora quo accusamus quia, maxime, sint, minus cumque omnis saepe doloribus deleniti aut.
+      </p>
+    </div>
+    <div id="tab-content-demo-2" class="ds-tab-content ds-hide" role="tabpanel" aria-labelledby="tab2">
+      <h4 class="ds-heading-4">tab2</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus cum, nemo sed deserunt eveniet officiis praesentium, consequuntur reiciendis quaerat voluptatum nihil perferendis, atque, et cupiditate officia asperiores fuga accusantium aliquam!
+      </p>
+    </div>
+    <div id="tab-content-demo-3" class="ds-tab-content ds-hide" role="tabpanel" aria-labelledby="tab3" onclick="redirectTo('/tss_portal/index.html');"
+      <h4 class="ds-heading-4">tab3</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore fugit facilis ratione, tenetur aut! Accusamus, debitis possimus excepturi, illo cum dolore animi deserunt quod molestiae, deleniti vitae voluptas. Culpa, aut.
+      </p>
+    </div>
+    <div id="tab-content-demo-4" class="ds-tab-content ds-hide" role="tabpanel" aria-labelledby="tab4">
+      <h4 class="ds-heading-4">tab4</h4>
+      <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora porro quia, at voluptates, tempore nemo, animi cumque dolores illo error voluptatibus autem! Recusandae, culpa sit, sunt provident distinctio expedita optio!
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+	<!--
+	<span class="ds-icon-recommended ds-text-contextual-red-3" tabindex="0" role="text" aria-label="admin"></span>
+	-->
+
+	<!--
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	包括契約照会
+	</button>
+</div>
+
+<div class="ds-button-group-h ds-row ds-mar-b-1">
+<!--
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('/tss_portal?type=ejs&status=ongoing');">
+	<span class="ds-icon-view" tabindex="0" role="text" aria-label="admin">
+	TSS Portal β (1) EJS
+	</button>
+-->
+<!--
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('/tss_portal/index.html');">
+	<span class="ds-icon-view" tabindex="0" role="text" aria-label="admin">
+	TSS Portal β
+	</button>
+</div>
+
+<div class="ds-button-group-h ds-row ds-mar-b-1">
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('chis_contract/search.html');">
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	CHIS契約情報検索β
+	</button>
+</div>
+
+<div class="ds-button-group-h ds-row ds-mar-b-1">
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('open_call_list/search.html');">
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	Open Call List
+	</button>
+</div>
+
+<div class="ds-button-group-h ds-row ds-mar-b-1">
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('');">
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	(空き)
+	</button>
+
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('');">
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	(空き)
+	</button>
+
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('');">
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	(空き)
+	</button>
+</div>
+
+<div class="ds-button-group-h ds-row ds-mar-b-1">
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('');">
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	(空き)
+	</button>
+
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('');">
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	(空き)
+	</button>
+
+	<button class="ds-col-4 ds-button ds-basic ds-truncate" onclick="redirectTo('');">
+	<span class="ds-icon-desktop" tabindex="0" role="text" aria-label="admin">
+	(空き)
+	</button>
+</div>
+-->
+
+<script>
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+</script>
+
+<!--- w3ds template --->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

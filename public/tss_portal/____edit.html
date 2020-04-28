@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TSS Portal</title>
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body class="ds-has-sticky-footer">
+
+<!--
+	How to set up the w3 Masthead
+	https://w3.ibm.com/w3-masthead/
+-->
+<a href="https://w3.ibm.com/"
+	id="ds-w3-injectable-nav"
+	data-layout="1"
+	data-height="79"
+	data-breakpoint="sm"
+	target="_blank">w3</a>
+<script type="text/javascript" src="https://w3.ibm.com/w3-masthead/plugins/w3-masthead/w3-masthead.js"></script>
+
+		<div class="ds-grid">
+			<div class="ds-row">
+				<div class="ds-col-12">
+					<div class="ds-row ds-pad-t-3">
+						<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+							<!-- img src="../images/w3ds-logo.svg" class="ds-pad-b-1" alt="w3DS" -->
+							<h1 class="ds-heading-md-2 ds-heading-lg-1">TSS Portal</h1>
+							<p class="ds-mar-0">
+<!--- w3ds template --->
+
+
+<script>
+	$(function(){
+		alert("abd");
+		url = "/tss_portal/update";
+		alert(url);
+		fetch(url)
+			.then((response) => response.json())
+			.then((body_docs) => {
+				createTable(body_docs);
+		});
+	});
+
+	conset createTable = (body_docs) => {
+		$("#feature").val(body_docs.feature);
+	}
+
+
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+
+</script>
+
+
+<div class="ds-table-container">
+	<table class="ds-table">
+<!--
+		<thead>
+			<tr>
+				<th>Data 1</th>
+				<th>Data 2</th>
+			</tr>
+		</thead>
+-->
+		<tbody>
+			<tr>
+				<td>Backlog Date</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs.no %>" id="no" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Business</td>
+				<td>
+					<div class="ds-input-container ds-mar-b-0">
+						<div class="ds-select">
+							<select id="select-menu-business" required>
+								<option value="">(Blank)</option>
+								<option value="Basic Selection">Basic Selection</option>
+								<option value="Call Management">Call Management</option>
+								<option value="CEDS">CEDS</option>
+								<option value="CISCO">CISCO</option>
+								<option value="DMaS">DMaS</option>
+								<option value="HSBC">HSBC</option>
+								<option value="Indigo">Indigo</option>
+								<option value="MA BID">MA BID</option>
+								<option value="Maint Extension">Maint Extension</option>
+								<option value="MAS Accrual">MAS Accrual</option>
+								<option value="MIG">MIG</option>
+								<option value="Network OEM">Network OEM</option>
+								<option value="New">New</option>
+								<option value="Percall">Percall</option>
+								<option value="SPO">SPO</option>
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Category</td>
+				<td>
+					<div class="ds-input-container ds-mar-b-0">
+						<div class="ds-select">
+							<select id="select-menu-category" required>
+								<option value="">(Blank)</option>
+								<option value="Improve">Improve</option>
+								<option value="Legal/Tax Control">Legal/Tax Control</option>
+								<option value="Strategic">Strategic</option>
+								<option value="Sysmod">Sysmod</option>
+								<option value="Technical Debt">Technical Debt</option>
+								<option value="Transform">Transform</option>
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Feature</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="" id="feature" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Investment</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs.investment %>" id="investment" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Benefits</td>
+				<td>
+					<div class="ds-input-container ds-mar-b-0">
+						<div class="ds-select">
+							<select id="select-menu-benefits" required>
+								<option value="">(Blank)</option>
+								<option value="Digital Adoption">Digital Adoption</option>
+								<option value="Improved Systems of Engagement">Improved Systems of Engagement</option>
+								<option value="Leapfrog Competition">Leapfrog Competition</option>
+								<option value="Optimal Customer Experience">Optimal Customer Experience</option>
+								<option value="TSecurity">Security</option>
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Progress</td>
+				<td>
+					<div class="ds-input-container ds-mar-b-0">
+						<div class="ds-select">
+							<select id="select-menu-progress" required>
+								<option value="">(Blank)</option>
+								<option value="On Going">On Going</option>
+								<option value="IBacklog">Backlog</option>
+								<option value="Done">Done</option>
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Backlog Date</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs.backlog_date %>" id="backlog_date" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Start Date</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs.start_date %>" id="start_date" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>S/I Plan</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs.si_plan %>" id="si_plan" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>S/I Date</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs.si_date %>" id="si_date" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Lead Time</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs.lead_time %>" id="lead_time" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Cycle Time</td>
+				<td>
+					<div class="ds-input-container ds-mar-0 ds-pad-0">
+						<input type="text" class="ds-input" value="<%= body_docs.cycle_time %>" id="cycle_time" size=1 maxlength=256>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Squad</td>
+				<td>
+					<div class="ds-input-container ds-mar-b-0">
+						<div class="ds-select">
+							<select id="select-menu-squads" required>
+								<option value="">(Blank)</option>
+								<option value="B2B">B2B</option>
+								<option value="O2C">O2C</option>
+								<option value="O2O">O2O</option>
+								<option value="OEM">OEM</option>
+							</select>
+						</div>
+					</div>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+
+<div class='ds-table-container ds-col-12'>
+<div id="table_contents" data-widget="datatable" data-col-reorder="true" data-info="true" data-ordering="true" data-paging="true" data-searching="true" class="ibm-data-table ibm-altrows"></div>
+</div>
+
+<!--- w3ds template --->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>

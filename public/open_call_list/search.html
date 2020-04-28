@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="EN" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Open Call Data</title>
+		<link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+		<!-- if data tables are required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+    
+		<!-- if code syntax highlighting is required -->
+		<link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+
+		<!-- JQuery from Google site -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body class="ds-has-sticky-footer">
+
+<!--
+	How to set up the w3 Masthead
+	https://w3.ibm.com/w3-masthead/
+-->
+<a href="https://w3.ibm.com/"
+	id="ds-w3-injectable-nav"
+	data-layout="1"
+	data-height="79"
+	data-breakpoint="sm"
+	target="_blank">w3</a>
+<script type="text/javascript" src="https://w3.ibm.com/w3-masthead/plugins/w3-masthead/w3-masthead.js"></script>
+
+		<div class="ds-grid">
+			<div class="ds-row">
+				<div class="ds-col-12">
+					<div class="ds-row ds-pad-t-3">
+						<div class="ds-col-xs-10 ds-offset-xs-1 ds-pad-b-3">
+							<!-- img src="../images/w3ds-logo.svg" class="ds-pad-b-1" alt="w3DS" -->
+							<h1 class="ds-heading-md-2 ds-heading-lg-1">Open Call Data</h1>
+							<p class="ds-mar-0">
+<!--- w3ds template --->
+
+<script>	
+	$(function(){
+		$("#loader").hide();
+	});
+	
+	const redirectTo = (url) => {
+		location.href = url;
+	}
+	
+	const searchData = (search_type) => {
+
+		customer_number = searchItems.customer_number.value.toUpperCase();
+		BO_Queue = searchItems.BO_Queue.value.toUpperCase();
+
+		if ((customer_number == "") & (BO_Queue == "")) {
+			search_type = "all";
+		}
+
+		switch (search_type) {
+			case "search":
+				url = "/open_call_list?type=api&search_type=search&customer_number=" + customer_number + "&BO_Queue=" + BO_Queue;
+				break;
+			case "all":
+			default:
+				searchItems.customer_number.value = "";
+				searchItems.BO_Queue.value = "";
+
+				url = "/open_call_list?type=api&search_type=all";
+				break;
+		}
+
+		$("#table_contents").empty();
+		
+		$("#loader").show();
+
+		fetch(url)
+			.then((response) => response.json())
+			.then((body_docs) => {
+				createTable(body_docs);
+		});
+
+	}
+	
+	const createTable = (body_docs) => {
+		
+		var param = '<table class="ds-table ds-table-compact ds-striped _ds-centered">\n';
+		param += '<tr class="ds-bg-contextual-blue-3">\n';
+		
+		param += '<th>Call_ID</th>\n';
+		param += '<th>account_name</th>\n';
+		param += '<th>customer_number</th>\n';
+		param += '<th>BO_Queue</th>\n';
+		param += '<th>CSBO</th>\n';
+		param += '<th>Product</th>\n';
+		param += '<th>Model</th>\n';
+		param += '<th>SerialNo</th>\n';
+		param += '<th>MSG1</th>\n';
+		param += '<th>MA</th>\n';
+		param += '<th>Down_ID</th>\n';
+		param += '<th>Status</th>\n';
+		param += '<th>Create_Time</th>\n';
+		param += '<th>Create_Date</th>\n';
+		param += '<th>Last_Update</th>\n';
+		param += '<th>Last_CE_Name</th>\n';
+		param += '<th>Comment</th>\n';
+		param += '</tr>\n';
+
+		if (Object.keys(body_docs).length != 0) {
+
+			for (i = 0; i < Object.keys(body_docs).length; i++) {
+
+				param += "<tr><td>" + body_docs[i].Call_ID + "</td>";
+				param += "<td>" + body_docs[i].account_name + "</td>";
+				param += "<td>" + body_docs[i].customer_number + "</td>";
+				param += "<td>" + body_docs[i].BO_Queue + "</td>";
+				param += "<td>" + body_docs[i].CSBO + "</td>";
+				param += "<td>" + body_docs[i].Product + "</td>";
+				param += "<td>" + body_docs[i].Model + "</td>";
+				param += "<td>" + body_docs[i].SerialNo + "</td>";
+				param += "<td>" + body_docs[i].MSG1 + "</td>";
+				param += "<td>" + body_docs[i].MA + "</td>";
+				param += "<td>" + body_docs[i].Down_ID + "</td>";
+				param += "<td>" + body_docs[i].Status + "</td>";
+				param += "<td>" + body_docs[i].Create_Time + "</td>";
+				param += "<td>" + body_docs[i].Create_Date + "</td>";
+				param += "<td>" + body_docs[i].Last_Update + "</td>";
+				param += "<td>" + body_docs[i].Last_CE_Name + "</td>";
+				param += "<td>" + body_docs[i].Comment + "</td></tr>\n";
+		}
+			param += "</tr></table>";
+			
+			$("#loader").hide();
+
+			$("#table_contents").append(param);
+			$("#result").empty();
+			$("#result").append(Object.keys(body_docs).length);
+		}
+	}
+
+	const getCurrentTime = () => {
+		var date = new Date();
+
+		var d = date.getFullYear()
+			+ ('0' + (date.getMonth() + 1)).slice(-2)
+			+ ('0' + date.getDate()).slice(-2)
+			+ ('0' + date.getHours()).slice(-2)
+			+ ('0' + date.getMinutes()).slice(-2)
+			+ ('0' + date.getSeconds()).slice(-2);
+
+		return d;
+	};
+
+	const download = () => {
+		current_timestamp = getCurrentTime();
+				
+		var dl = document.createElement("a");
+		dl.download = "TSS_Portal_DB_" + current_timestamp + ".csv"; // Download File Name
+		dl.href = "/tss_portal_all_data.csv"; 
+		dl.dataset.downloadurl = ["text/plain", dl.href].join(":");
+		
+		dl.click();
+	}
+
+	const clearData = () => {
+		searchItems.customer_number.value = "";
+		searchItems.BO_Queue.value = "";
+		$("#table_contents").empty();
+		$("#result").empty();
+		$("#result").append(0);
+	}
+</script>
+
+<form name="searchItems">
+<div class="ds-table-container ds-col-12">
+<table class="ds-table ds-table-compact">
+	<tr>
+		<td>Customer Number</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-4">
+			    <input type="text" class="ds-input" id="customer_number" _placeholder="machine_type" name="machine_type" value="" _maxlength=4>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>BO Queue</td>
+		<td>
+			<div class="ds-input-container ds-mar-0 ds-pad-0 ds-col-4">
+			    <input type="text" class="ds-input" id="BO_Queue" _placeholder="model" name="mmodel" value="" _maxlength=3>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+</form>
+
+
+<div class="ds-button-group-h ds-row ds-mar-t-1 ds-pad-l-r-1">
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="searchData('search');">
+	<span class="ds-icon-search" tabindex="0" role="text" aria-label="admin">
+	検索</span></button>
+
+
+	<button class="ds-button ds-basic ds-mar-b-0 ds-col-3" id="search_ongoing" onclick="searchData('all');">
+	<span class="ds-icon-archive _ds-text-contextual-blue-3" tabindex="0" role="text" aria-label="admin">
+	全データ</span></button>
+
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="clearData();">
+	<span class="ds-icon-refresh" tabindex="0" role="text" aria-label="admin">
+	クリア</span></button>
+
+	<button class="ds-col-3 ds-offset-0 ds-button ds-basic ds-truncate" onclick="redirectTo('../index.html');">
+	<span class="ds-icon-reset" tabindex="0" role="text" aria-label="admin">
+	戻る</span></button>
+</div>
+
+<span class="ds-pad-l-r-1 ds-mar-0 ds-pad-0" id="result">0</span>件
+
+<div class='ds-table-container ds-col-12'>
+<div id="table_contents"></div>
+</div>
+
+<div id="loader">
+<div class="ds-loader">
+	<div class="ds-loader-container">
+		<div class="ds-loader-container"></div>
+	</div>
+</div>
+</div>
+
+<!--- w3ds template --->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+			<div class="ds-row">
+				<h5 class="ds-offset-xs-1 ds-col-xs-10 ds-pad-t-2_5 ds-heading-5">
+					<span class="ds-icon-github-l" style="vertical-align: middle;"></span>
+					<a href="https://github.ibm.com/w3/w3DS" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">w3DS on GitHub</a>
+				</h5>
+			</div>
+		</footer>
+		<script src="../w3ds/w3ds.js"></script>
+	</body>
+</html>
