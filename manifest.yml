@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: dal1a.ciocloud.nonprod.intranet.ibm.com
-  name: test-dev-2
-  host: test-dev-2
+  name: test-dev-3
+  host: test-dev-3
   disk_quota: 1024M
